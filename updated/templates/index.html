@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>e-Voting System</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        .btn {
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to the e-Voting System</h1>
+    <a href="{{ url_for('login') }}" class="btn btn-primary">User Login</a>
+    <a href="{{ url_for('register') }}" class="btn btn-success">Register</a>
+    <a href="{{ url_for('admin_login') }}" class="btn btn-danger">Admin Login</a>
+</body>
+</html>

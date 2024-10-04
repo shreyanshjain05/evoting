@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voting Results</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #007BFF;
+            color: white;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+        .winner {
+            color: #28a745;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        h2 {
+            text-align: center;
+            margin-top: 20px;
+            color: #333;
+        }
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+            .container {
+                padding: 15px;
+            }
+            h1 {
+                font-size: 24px;
+            }
+            h2 {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Voting Results</h1>
+        <table>
+            <tr>
+                <th>Candidate Name</th>
+                <th>Votes</th>
+            </tr>
+            {% for candidate, votes in candidate_votes.items() %}
+            <tr>
+                <td>{{ candidate.name }}</td>
+                <td>{{ votes }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+
+        <!-- Display the winning candidate -->
+        <h2>
+            {% if winning_candidate %}
+                The winner is: <span class="winner">{{ winning_candidate.name }}</span> with {{ candidate_votes[winning_candidate] }} votes!
+            {% else %}
+                No votes have been cast yet.
+            {% endif %}
+        </h2>
+    </div>
+</body>
+</html>

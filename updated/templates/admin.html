@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h2 class="mt-5">Admin Dashboard</h2>
+        <form method="POST" class="mt-4">
+            <div class="form-group">
+                <label for="candidate_name">Add New Candidate</label>
+                <input type="text" class="form-control" id="candidate_name" name="candidate_name" required>
+            </div>
+            <button type="submit" class="btn btn-success">Add Candidate</button>
+        </form>
+        <h3 class="mt-5">Candidates List</h3>
+        <ul class="list-group">
+            {% for candidate in candidates %}
+                <li class="list-group-item">{{ candidate.name }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>
